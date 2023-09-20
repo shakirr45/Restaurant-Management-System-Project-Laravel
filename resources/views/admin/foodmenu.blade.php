@@ -69,7 +69,7 @@
         <td  style="padding: 10px;">{{$data->price}}</td>
         <td  style="padding: 10px;">{{$data->description}}</td>
         <td  style="padding: 10px;">
-        <img height="200" width=200"" src="/foodimage/{{$data->image}}" alt="">
+        <img height="200" width="200" src="/foodimage/{{$data->image}}" alt="">
     </td>
         <td  style="padding: 30px;"><a href="{{url('delete_food',$data->id)}}">Delete</a>
 

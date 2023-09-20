@@ -16,6 +16,8 @@
                     
 
                 @foreach($data as $data)
+                <form action="{{url('/addcart',$data->id)}}" method="POST">
+                    @csrf
                     
                     <div class="item">
                         <!-- //for show image just edit into under the div -->
@@ -29,7 +31,15 @@
                               </div>
                             </div>
                         </div>
+
+     
+
+                        <input type="number" name="quantity" min="1" value="1" style="width: 80px;" >
+                        <input type="submit" value="Add Cart">
+
                     </div>
+                    </form>
+
 
 @endforeach
 

@@ -45,6 +45,52 @@ Route::get('/delete_food/{id}', [AdminController::class, 'delete_food']);
 Route::get('/update_food/{id}', [AdminController::class, 'update_food']);
 Route::post('/edit_food/{id}', [AdminController::class, 'edit_food']);
 
+//Create reservation post ===>
+Route::post('/reservation', [AdminController::class, 'reservation']);
+
+
+//Show reservation post as admin===>
+Route::get('/adminreservation', [AdminController::class, 'adminreservation']);
+
+
+//Add chefs as admin===>
+Route::get('/chefs', [AdminController::class, 'chefs']);
+Route::post('/add_chefs', [AdminController::class, 'add_chefs']);
+
+//Update chefs ===>
+Route::get('/update_chefs/{id}', [AdminController::class, 'update_chefs']);
+Route::post('/main_update_chefs/{id}', [AdminController::class, 'main_update_chefs']);
+
+//Delete chefs ===>
+Route::get('/delete_chefs/{id}', [AdminController::class, 'delete_chefs']);
+
+// addcart ===>
+Route::post('/addcart/{id}', [HomeController::class, 'addcart']);
+
+//show cart ====>
+Route::get('/showcart/{id}', [HomeController::class, 'showcart']);
+
+//delete cart data ====>
+Route::get('/remove/{id}', [HomeController::class, 'remove']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
