@@ -73,6 +73,17 @@ Route::get('/showcart/{id}', [HomeController::class, 'showcart']);
 //delete cart data ====>
 Route::get('/remove/{id}', [HomeController::class, 'remove']);
 
+// for order confirm ===>
+Route::post('/orderconfirm', [HomeController::class, 'orderconfirm']);
+
+//orders show as admin ====>
+Route::get('/orders', [AdminController::class, 'orders']);
+
+//for search data as admin ====>
+Route::get('/search', [AdminController::class, 'search']);
+
+
+
 
 
 

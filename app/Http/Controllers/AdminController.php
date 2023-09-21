@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-// use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Food;
 use App\Models\Reservation;
 use App\Models\Chefs;
+use App\Models\Order;
+
 
 
 
@@ -106,8 +108,14 @@ class AdminController extends Controller
 
     //reservation show ====>
     public function adminreservation(){
-        $data = Reservation::all();
-        return view('admin.adminreservation', compact('data'));
+
+        if(Auth::id()){
+            $data = Reservation::all();
+            return view('admin.adminreservation', compact('data'));
+        }else{
+            return redirect('login');
+        }
+
     }
 
     //add chefs ====>
@@ -165,4 +173,26 @@ class AdminController extends Controller
         return redirect()->back();
 
     }
+
+    //order show===>>
+    public function orders(){
+        $data = Order::all();
+
+        return view('admin.orders',compact('data'));
+    }
+
+//for search data as admin ====>
+
+public function search(Request $request){
+
+    $search = $request->search;
+    // $data= Order::where('name','Like','%'.$search.'%')->get();
+
+    //for serch with multiple====>>
+    $data= Order::where('name','Like','%'.$search.'%')->orWhere('address','Like','%'.$search.'%')->get();
+
+    return view('admin.orders',compact('data'));
+    
+}
+
 }   

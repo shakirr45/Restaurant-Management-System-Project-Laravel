@@ -6,6 +6,7 @@
   <base href="/public">
 
 
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -31,6 +32,9 @@ https://templatemo.com/tm-558-klassy-cafe
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
+    <!-- //for jquery cdn==========>> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 
     </head>
     
@@ -154,11 +158,24 @@ CArt[0]
 
 
         </tr>
+<form action="{{url('orderconfirm')}}" method="POST" enctype="multipart/form-data">
+    @csrf
 @foreach($data as $data)
         <tr align="center">
-            <td>{{$data->title}}</td>
-            <td>{{$data->price}}</td>
-            <td>{{$data->quantity}}</td>
+            <td>
+                <input type="text" name="food_name[]" value="{{$data->title}}" hidden="">
+                {{$data->title}}
+            </td>
+            <td>
+            <input type="text" name="price[]" value="{{$data->price}}" hidden="">
+
+                {{$data->price}}
+            </td>
+            <td>
+            <input type="text" name="quantity[]" value="{{$data->quantity}}" hidden="">
+
+                {{$data->quantity}}
+            </td>
 
 
         </tr>
@@ -170,7 +187,59 @@ CArt[0]
         </tr >
         @endforeach
     </table>
+
+    <div align="center" style="padding: 10px">
+    <button class="btn btn-primary"  style="color:blue"  type="button" id="order">Order Now</button>
+        
+        </div>
+
+        <div  align="center" id="appear" style="display: none;">
+
+            <div style="padding:10px">
+                <label for="">Name</label>
+                <input type="text" name="name" placeholder="Enter Your Name">
+            </div>
+
+            <div style="padding:10px">
+                <label for="">Phone</label>
+                <input type="Number" name="phone" placeholder="Enter Your Phone Number">
+            </div>
+
+            <div style="padding:10px">
+                <label for="">Address</label>
+                <input type="text" name="address" placeholder="Enter Your Address">
+            </div>
+
+            <div style="padding:10px">
+            <input  style="color:green" class="btn btn-success" type="submit" value="Order Confirm" >
+
+            <button  class="btn btn-danger"  style="color:red"  type="button" id="close">Close</button>
+
+            
+            </div>
+        </div>
+
+        </form>
+    
+    
     </div>
+
+    <!-- //for jquery =======>>> -->
+
+    <script>
+        $("#order").click(
+            function (){
+                $("#appear").show();
+            }
+        );
+
+        $("#close").click(
+            function(){
+                $("#appear").hide();
+            }
+        );
+    </script>
+
 
 
         <!-- jQuery -->

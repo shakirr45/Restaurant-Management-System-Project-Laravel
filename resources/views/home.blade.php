@@ -51,8 +51,13 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
+                        <!-- //for reponsive===============into a tag ================>>>> -->
                         <a href="index.html" class="logo">
                             <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
+
+                            <a href="" class="menu-trigger">
+                                <span>Menu</span>
+                            </a>
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
